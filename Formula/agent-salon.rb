@@ -12,6 +12,11 @@ class AgentSalon < Formula
     system "cargo", "install", *std_cargo_args(path: ".")
   end
 
+  def post_install
+    (var/"agent-salon").mkpath
+    (var/"log").mkpath
+  end
+
   service do
     run [opt_bin/"agent-salon"]
     keep_alive true
