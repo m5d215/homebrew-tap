@@ -15,9 +15,9 @@ brew install m5d215/tap/<formula>
 - `README.md` — user-facing formula index.
 - `CLAUDE.md` — this file. Release / update procedures.
 
-## Two formula shapes
+## Three formula shapes
 
-Formulae in this tap fall into two categories with **different release
+Formulae in this tap fall into three categories with **different release
 procedures**. Match each formula against the shape below before editing.
 
 ### Shape A — external source (`agent-salon`)
@@ -90,6 +90,71 @@ sha256 "2d77536b0e7a57724c38194b28447d61a92b0c5c919979acb0287d89154ddc9f"
 
 Order matters — if you push the formula before the tag, the
 `curl | shasum` will 404.
+
+### Shape C — pre-built binary from upstream releases (`jq-jit`)
+
+Upstream publishes platform-specific binary tarballs to GitHub Releases
+(via CI). The formula downloads the tarball matching the current
+platform and installs the extracted binary directly — no compilation,
+install completes in seconds.
+
+```ruby
+version "1.1.1"
+
+on_macos do
+  on_arm do
+    url "https://github.com/m5d215/jq-jit/releases/download/v1.1.1/jq-jit-macos-arm64.tar.gz"
+    sha256 "<hash>"
+  end
+end
+
+on_linux do
+  on_intel do
+    url "https://github.com/m5d215/jq-jit/releases/download/v1.1.1/jq-jit-linux-x86_64.tar.gz"
+    sha256 "<hash>"
+  end
+end
+
+def install
+  bin.install "jq-jit"
+end
+```
+
+**Release procedure** (when upstream ships a new release):
+
+1. Confirm upstream CI has produced the expected binary assets:
+   ```sh
+   gh release view v<X.Y.Z> --repo m5d215/<project>
+   ```
+2. Compute the sha256 for each supported asset:
+   ```sh
+   curl -sL https://github.com/m5d215/<project>/releases/download/v<X.Y.Z>/<asset>.tar.gz \
+     | shasum -a 256
+   ```
+3. Update the formula:
+   - bump `version`
+   - bump each `url` tag
+   - replace each `sha256`
+4. Commit and push:
+   ```sh
+   git add Formula/<name>.rb
+   git commit -m "<name>: bump to v<X.Y.Z>"
+   git push
+   ```
+5. On each host: `brew update && brew upgrade m5d215/tap/<name>`.
+
+Notes on Shape C:
+- `version` is **required** (explicit) — the release asset filename
+  doesn't include the version, so Homebrew can't infer it. This bypasses
+  the Shape-A/B audit rule about redundant version.
+- Don't list `depends_on "rust" => :build` (or similar) at the top
+  level — pre-built tarballs don't compile anything; declaring a build
+  toolchain dep would make `brew install` unnecessarily pull it in.
+- Use `on_macos { on_arm { ... } }` / `on_linux { on_intel { ... } }`
+  blocks to pick the right asset. Platforms without a matching block
+  will fail at install time — acceptable when no pre-built binary is
+  available for that target.
+- Audit requires `version` to appear *before* `license`, not after.
 
 ## Pre-push audit
 
