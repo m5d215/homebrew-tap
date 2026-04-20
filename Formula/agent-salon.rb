@@ -2,7 +2,7 @@ class AgentSalon < Formula
   desc "Gathering place for Claude Code MCP sessions"
   homepage "https://github.com/m5d215/agent-salon"
   url "https://github.com/m5d215/agent-salon.git",
-      tag: "v0.1.0"
+      tag: "v0.2.0"
   license "MIT"
   head "https://github.com/m5d215/agent-salon.git", branch: "main"
 
