@@ -4,6 +4,9 @@ class JqJit < Formula
   version "1.1.1"
   license any_of: ["MIT", "Apache-2.0"]
 
+  depends_on "jq"
+  depends_on "oniguruma"
+
   on_macos do
     on_arm do
       url "https://github.com/m5d215/jq-jit/releases/download/v1.1.1/jq-jit-macos-arm64.tar.gz"
