@@ -1,0 +1,42 @@
+name: Release agent-salon-restart
+
+on:
+  push:
+    tags: ["agent-salon-restart-v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  bump:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+
+      - name: Bump formula
+        env:
+          TAG: ${{ github.ref_name }}
+          REPO: ${{ github.repository }}
+        run: |
+          formula="Formula/agent-salon-restart.rb"
+          url="https://github.com/${REPO}/archive/refs/tags/${TAG}.tar.gz"
+
+          # タグ tarball の sha256 を計算。GitHub が返す archive/refs/tags/*.tar.gz は
+          # 内容（commit tree + 動的に生成される top-level ディレクトリ名）が安定していて
+          # 同じタグなら再計算しても一致する。
+          sha=$(curl -sfL "$url" | shasum -a 256 | cut -d' ' -f1)
+
+          sed -i -E "s|agent-salon-restart-v[0-9.]+\.tar\.gz|${TAG}.tar.gz|" "$formula"
+          sed -i -E "s|sha256 \"[a-f0-9]+\"|sha256 \"${sha}\"|" "$formula"
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$formula"
+          if git diff --cached --quiet; then
+            echo "formula already at ${TAG}; skipping commit"
+            exit 0
+          fi
+          git commit -m "agent-salon-restart: bump to ${TAG}"
+          git push origin main

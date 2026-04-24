@@ -31,16 +31,19 @@ No upstream project — the formula itself *is* the deliverable (e.g. a
 plist wrapper). `url` is a GitHub tarball against a tap-repo tag, with
 an explicit `sha256`. See `Formula/agent-salon-restart.rb`.
 
-Release:
-1. Tag *this* repo: `<formula>-vX.Y.Z` (formula-scoped prefix; multiple
+Release (manual):
+1. Bump `url` and `sha256` in the formula (sha256 via `curl -sL <tag
+   tarball url> | shasum -a 256` — the tarball must exist first, so
+   tag before this step).
+2. Tag *this* repo: `<formula>-vX.Y.Z` (formula-scoped prefix; multiple
    Shape-B formulae can release independently).
-2. Push the tag.
-3. `curl -sL <tag tarball url> | shasum -a 256` to get the sha256.
-4. Bump `url` and `sha256` in the formula.
-5. Commit + push.
+3. Commit + push.
 
-**Order matters**: pushing the formula before the tag makes the `curl`
-404.
+Release (automated): for formulae with a `.github/workflows/release-
+<formula>.yml`, just push the `<formula>-vX.Y.Z` tag — the workflow
+computes the sha256 from the tag tarball and bumps the formula on main.
+Order inverts from manual: tag first, the bump commit lands after via
+CI. Currently enabled for `agent-salon-restart`.
 
 ### Shape C — upstream pre-built release binaries (`jq-jit`)
 
