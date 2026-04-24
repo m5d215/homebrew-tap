@@ -21,8 +21,7 @@ Release (automated): some upstreams bump the `tag:` line here
 automatically on their own `v*` tag push, via a `.github/workflows/
 release.yml` that uses a `TAP_PUSH_TOKEN` PAT to commit to this tap.
 Currently enabled for `agent-salon`, `claude-history`, and
-`claude-statusline`. PAT lifecycle (issue, register, renew, recover)
-is handled by the `pat-renew` skill in `m5d215/agentic`.
+`claude-statusline`.
 
 ### Shape B — tap-internal tarball (`agent-salon-restart`)
 
