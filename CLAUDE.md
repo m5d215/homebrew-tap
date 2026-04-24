@@ -21,9 +21,8 @@ Release (automated): some upstreams bump the `tag:` line here
 automatically on their own `v*` tag push, via a `.github/workflows/
 release.yml` that uses a `TAP_PUSH_TOKEN` PAT to commit to this tap.
 Currently enabled for `agent-salon`, `claude-history`, and
-`claude-statusline`. See
-`m5d215/agentic/docs/dev/homebrew.md` for the pattern and PAT
-management.
+`claude-statusline`. PAT lifecycle (issue, register, renew, recover)
+is handled by the `pat-renew` skill in `m5d215/agentic`.
 
 ### Shape B — tap-internal tarball (`agent-salon-restart`)
 
@@ -43,7 +42,8 @@ Release (automated): for formulae with a `.github/workflows/release-
 <formula>.yml`, just push the `<formula>-vX.Y.Z` tag — the workflow
 computes the sha256 from the tag tarball and bumps the formula on main.
 Order inverts from manual: tag first, the bump commit lands after via
-CI. Currently enabled for `agent-salon-restart`.
+CI. Uses `GITHUB_TOKEN` (same-repo write), so no PAT is involved.
+Currently enabled for `agent-salon-restart`.
 
 ### Shape C — upstream pre-built release binaries (`jq-jit`)
 
