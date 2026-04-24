@@ -2,7 +2,7 @@ class ClaudeHistory < Formula
   desc "Search and browse Claude Code conversation logs"
   homepage "https://github.com/m5d215/claude-history"
   url "https://github.com/m5d215/claude-history.git",
-      tag: "v0.1.0"
+      tag: "v0.1.1"
   license "MIT"
   head "https://github.com/m5d215/claude-history.git", branch: "main"
 
