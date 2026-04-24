@@ -20,7 +20,8 @@ commit + push the tap.
 Release (automated): some upstreams bump the `tag:` line here
 automatically on their own `v*` tag push, via a `.github/workflows/
 release.yml` that uses a `TAP_PUSH_TOKEN` PAT to commit to this tap.
-Currently enabled for `agent-salon` and `claude-history`. See
+Currently enabled for `agent-salon`, `claude-history`, and
+`claude-statusline`. See
 `m5d215/agentic/docs/dev/homebrew.md` for the pattern and PAT
 management.
 
