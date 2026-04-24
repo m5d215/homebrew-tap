@@ -14,8 +14,15 @@ Points at an upstream repo with `url "...git", tag: "vX.Y.Z"`. No
 `sha256` — the git commit hash is the integrity check. Homebrew builds
 from source at install time. See `Formula/agent-salon.rb`.
 
-Release: upstream tags `vX.Y.Z` → edit `tag:` in the formula → commit +
-push the tap.
+Release (manual): upstream tags `vX.Y.Z` → edit `tag:` in the formula →
+commit + push the tap.
+
+Release (automated): some upstreams bump the `tag:` line here
+automatically on their own `v*` tag push, via a `.github/workflows/
+release.yml` that uses a `TAP_PUSH_TOKEN` PAT to commit to this tap.
+Currently enabled for `claude-history`. See
+`m5d215/agentic/docs/dev/homebrew.md` for the pattern and PAT
+management.
 
 ### Shape B — tap-internal tarball (`agent-salon-restart`)
 
