@@ -15,6 +15,20 @@ class AgentSalon < Formula
   def post_install
     (var/"agent-salon").mkpath
     (var/"log").mkpath
+    return if (etc/"agent-salon.conf").exist?
+
+    (etc/"agent-salon.conf").write(<<~CONF)
+      # agent-salon configuration
+      # Format: KEY=VALUE per line. Lines starting with `#` and blank lines
+      # are ignored. The live process environment overrides any value here.
+      # See https://github.com/m5d215/agent-salon#config-file
+      #
+      # Common host-specific settings (uncomment and edit):
+      #
+      # AGENT_SALON_BIND=0.0.0.0
+      # AGENT_SALON_ALLOWED_HOSTS=my-host.tailXXXXXX.ts.net,localhost,127.0.0.1
+      # AGENT_SALON_ALIASES=notes:laptop-a,drafts:home-mac
+    CONF
   end
 
   service do
@@ -24,8 +38,9 @@ class AgentSalon < Formula
     error_log_path var/"log/agent-salon.log"
     working_dir var/"agent-salon"
     environment_variables(
-      AGENT_SALON_DB: var/"agent-salon/agent-salon.db",
-      AGENT_SALON_PORT: "9315"
+      AGENT_SALON_DB:     var/"agent-salon/agent-salon.db",
+      AGENT_SALON_PORT:   "9315",
+      AGENT_SALON_CONFIG: etc/"agent-salon.conf"
     )
   end
 
