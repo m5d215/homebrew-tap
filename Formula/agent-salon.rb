@@ -1,15 +1,25 @@
 class AgentSalon < Formula
   desc "Gathering place for Claude Code MCP sessions"
   homepage "https://github.com/m5d215/agent-salon"
-  url "https://github.com/m5d215/agent-salon.git",
-      tag: "v0.4.4"
+  version "0.4.5"
   license "MIT"
-  head "https://github.com/m5d215/agent-salon.git", branch: "main"
 
-  depends_on "rust" => :build
+  on_macos do
+    on_arm do
+      url "https://github.com/m5d215/agent-salon/releases/download/v0.4.5/agent-salon-macos-arm64.tar.gz"
+      sha256 "947ed821366eccdf02101275406195fa700b0c8c1d5d1b10dfcebd01fe55c100"
+    end
+  end
+
+  on_linux do
+    on_intel do
+      url "https://github.com/m5d215/agent-salon/releases/download/v0.4.5/agent-salon-linux-x86_64.tar.gz"
+      sha256 "60d8fc7aa4c74b9f85ae085961c1257236b591ab00d07a6dd56898dca2c0a041"
+    end
+  end
 
   def install
-    system "cargo", "install", *std_cargo_args(path: ".")
+    bin.install "agent-salon"
   end
 
   def post_install
@@ -40,7 +50,7 @@ class AgentSalon < Formula
     environment_variables(
       AGENT_SALON_DB:     var/"agent-salon/agent-salon.db",
       AGENT_SALON_PORT:   "9315",
-      AGENT_SALON_CONFIG: etc/"agent-salon.conf"
+      AGENT_SALON_CONFIG: etc/"agent-salon.conf",
     )
   end
 
