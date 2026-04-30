@@ -46,6 +46,7 @@ class AgentSalonSlack < Formula
       # Optional (defaults shown):
       #
       # AGENT_SALON_SLACK_HTTP_PORT=8765
+      # AGENT_SALON_SLACK_HTTP_BIND=127.0.0.1
       # OLLAMA_URL=http://localhost:11434
       # OLLAMA_MODEL=llama-guard3:1b
       # INJECTION_BLOCK_THRESHOLD=0.7
