@@ -1,20 +1,20 @@
 class AgentSalonSlack < Formula
   desc "Bridge between Slack and Claude Code sessions via agent-salon"
   homepage "https://github.com/m5d215/agent-salon-slack"
-  version "0.1.2"
+  version "0.1.3"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/m5d215/agent-salon-slack/releases/download/v0.1.2/agent-salon-slack-macos-arm64.tar.gz"
-      sha256 "1f95d29075d9e6f67123c667bfc12741a2c18e34e1b4378c2bd75a0ccdde4748"
+      url "https://github.com/m5d215/agent-salon-slack/releases/download/v0.1.3/agent-salon-slack-macos-arm64.tar.gz"
+      sha256 "892397e2fb200fa7fa7f184d8da9bd495af93d9c5bfa76576518ef98de742101"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/m5d215/agent-salon-slack/releases/download/v0.1.2/agent-salon-slack-linux-x86_64.tar.gz"
-      sha256 "334c884bae20b7aaf9388e96bc7cef297e26104718d894a8652e6a0638ee6401"
+      url "https://github.com/m5d215/agent-salon-slack/releases/download/v0.1.3/agent-salon-slack-linux-x86_64.tar.gz"
+      sha256 "c15a2e5092987baa4e9cdc7376138b897175ae3851794542d10d615924b65deb"
     end
   end
 
