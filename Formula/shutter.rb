@@ -10,7 +10,7 @@ class Shutter < Formula
   on_macos do
     on_arm do
       url "https://github.com/m5d215/shutter/releases/download/v0.1.0/shutter-macos-arm64.tar.gz"
-      sha256 "0000000000000000000000000000000000000000000000000000000000000000"
+      sha256 "c248652afd27036481c779f67d95417230500af274c67e2259a68cd9fd666663"
     end
   end
 
