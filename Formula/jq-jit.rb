@@ -1,20 +1,20 @@
 class JqJit < Formula
   desc "JIT-compiling implementation of jq using Cranelift"
   homepage "https://github.com/m5d215/jq-jit"
-  version "1.5.1"
+  version "1.5.2"
   license any_of: ["MIT", "Apache-2.0"]
 
   on_macos do
     on_arm do
-      url "https://github.com/m5d215/jq-jit/releases/download/v1.5.1/jq-jit-macos-arm64.tar.gz"
-      sha256 "5d18e30a231f85055e0058cfec29f54afb4530e482b144a4b1b15c96ab64dd55"
+      url "https://github.com/m5d215/jq-jit/releases/download/v1.5.2/jq-jit-macos-arm64.tar.gz"
+      sha256 "d925dfdeae987e23f5bca18b0de365a211d220ed991c1896163234be51300116"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/m5d215/jq-jit/releases/download/v1.5.1/jq-jit-linux-x86_64.tar.gz"
-      sha256 "658744dc097d4b73a6bd77e223fd4f4c4a6a406d8073514e0c7f63b32e6a598f"
+      url "https://github.com/m5d215/jq-jit/releases/download/v1.5.2/jq-jit-linux-x86_64.tar.gz"
+      sha256 "5d508b137d3d4f7d197369324d8977781a4e4bb3532f835a8ee8f3bc0f45f01c"
     end
   end
 
