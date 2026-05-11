@@ -2,7 +2,7 @@ class ClaudeStatusline < Formula
   desc "Powerline-style status line for Claude Code (single jq-jit program)"
   homepage "https://github.com/m5d215/claude-statusline"
   url "https://github.com/m5d215/claude-statusline.git",
-      tag: "v0.1.2"
+      tag: "v0.2.0"
   license "MIT"
   head "https://github.com/m5d215/claude-statusline.git", branch: "main"
 
