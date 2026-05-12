@@ -1,20 +1,20 @@
 class MarkdownBrowser < Formula
   desc "Terminal markdown browser with first-class GFM table rendering"
   homepage "https://github.com/m5d215/markdown-browser"
-  version "0.1.0"
+  version "0.2.0"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/m5d215/markdown-browser/releases/download/v0.1.0/markdown-browser-macos-arm64.tar.gz"
-      sha256 "684d05e23f484d9fa867da7d35511a62bb29d4e295623a537f48804752fa364a"
+      url "https://github.com/m5d215/markdown-browser/releases/download/v0.2.0/markdown-browser-macos-arm64.tar.gz"
+      sha256 "625d00b1d2d714f5e217b97564f57d21d58d5f37dab5178f28f8f53da63ad856"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/m5d215/markdown-browser/releases/download/v0.1.0/markdown-browser-linux-x86_64.tar.gz"
-      sha256 "db9fabf3589837c56fd7514b1941005a70badece14a265c15b033fde7c465f5d"
+      url "https://github.com/m5d215/markdown-browser/releases/download/v0.2.0/markdown-browser-linux-x86_64.tar.gz"
+      sha256 "4cd5ecbb42c748d6ed3edfa4778f716e4228313209aedb96f07bae4a1585a4d8"
     end
   end
 
