@@ -48,9 +48,10 @@ class AgentSalon < Formula
     error_log_path var/"log/agent-salon.log"
     working_dir var/"agent-salon"
     environment_variables(
-      AGENT_SALON_DB:     var/"agent-salon/agent-salon.db",
-      AGENT_SALON_PORT:   "9315",
-      AGENT_SALON_CONFIG: etc/"agent-salon.conf",
+      AGENT_SALON_DB:         var/"agent-salon/agent-salon.db",
+      AGENT_SALON_PORT:       "9315",
+      AGENT_SALON_CONFIG:     etc/"agent-salon.conf",
+      AGENT_SALON_JSONL_LOG:  var/"log/agent-salon.jsonl",
     )
   end
 
