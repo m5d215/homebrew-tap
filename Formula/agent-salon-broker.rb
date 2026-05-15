@@ -1,20 +1,20 @@
 class AgentSalonBroker < Formula
   desc "Broker daemon for claude -p-style jobs via agent-salon"
   homepage "https://github.com/m5d215/agent-salon-broker"
-  version "0.1.0"
+  version "0.2.0"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/m5d215/agent-salon-broker/releases/download/v0.1.0/agent-salon-broker-macos-arm64.tar.gz"
-      sha256 "26c471dde426cc0e53ad9b57d08718836837b57f615526ba640f1c90311d24ab"
+      url "https://github.com/m5d215/agent-salon-broker/releases/download/v0.2.0/agent-salon-broker-macos-arm64.tar.gz"
+      sha256 "419bc2375abf66b5d14c2367ffb42dbbe4bf3733b6bf8c3cce1c117dce4e8f36"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/m5d215/agent-salon-broker/releases/download/v0.1.0/agent-salon-broker-linux-x86_64.tar.gz"
-      sha256 "30fc942947f63a021e2556501b2ffbb63a448e58358b8e014fe2f598357e6aa0"
+      url "https://github.com/m5d215/agent-salon-broker/releases/download/v0.2.0/agent-salon-broker-linux-x86_64.tar.gz"
+      sha256 "0843125d268f1706d297b4a54278352ad985bfffa9f92181ddc2d7b4926d8ce9"
     end
   end
 
