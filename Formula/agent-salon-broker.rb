@@ -25,6 +25,24 @@ class AgentSalonBroker < Formula
   def post_install
     (var/"agent-salon-broker").mkpath
     (var/"log").mkpath
+    return if (etc/"agent-salon-broker.conf").exist?
+
+    (etc/"agent-salon-broker.conf").write(<<~CONF)
+      # agent-salon-broker configuration
+      # Format: KEY=VALUE per line. Lines starting with `#` and blank lines
+      # are ignored. The live process environment overrides any value here.
+      # See https://github.com/m5d215/agent-salon-broker#config-file
+      #
+      # Common host-specific settings (uncomment and edit):
+      #
+      # AGENT_SALON_URL=http://127.0.0.1:9315/mcp?label=broker
+      # AGENT_SALON_BROKER_TARGET=claudep
+      # AGENT_SALON_BROKER_LISTEN=127.0.0.1:9316
+      # AGENT_SALON_BROKER_TIMEOUT_SEC=600
+      #
+      # To accept requests from other devices on a Tailnet:
+      # AGENT_SALON_BROKER_LISTEN=0.0.0.0:9316
+    CONF
   end
 
   service do
@@ -34,9 +52,7 @@ class AgentSalonBroker < Formula
     error_log_path var/"log/agent-salon-broker.log"
     working_dir var/"agent-salon-broker"
     environment_variables(
-      AGENT_SALON_URL:              "http://127.0.0.1:9315/mcp?label=broker",
-      AGENT_SALON_BROKER_LISTEN:    "127.0.0.1:9316",
-      AGENT_SALON_BROKER_TARGET:    "claudep",
+      AGENT_SALON_BROKER_CONFIG: etc/"agent-salon-broker.conf",
     )
   end
 
