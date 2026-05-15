@@ -7,14 +7,14 @@ class AgentSalonBroker < Formula
   on_macos do
     on_arm do
       url "https://github.com/m5d215/agent-salon-broker/releases/download/v0.1.0/agent-salon-broker-macos-arm64.tar.gz"
-      sha256 "0000000000000000000000000000000000000000000000000000000000000000"
+      sha256 "26c471dde426cc0e53ad9b57d08718836837b57f615526ba640f1c90311d24ab"
     end
   end
 
   on_linux do
     on_intel do
       url "https://github.com/m5d215/agent-salon-broker/releases/download/v0.1.0/agent-salon-broker-linux-x86_64.tar.gz"
-      sha256 "0000000000000000000000000000000000000000000000000000000000000000"
+      sha256 "30fc942947f63a021e2556501b2ffbb63a448e58358b8e014fe2f598357e6aa0"
     end
   end
 
