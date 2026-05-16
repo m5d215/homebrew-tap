@@ -52,7 +52,8 @@ class AgentSalonBroker < Formula
     error_log_path var/"log/agent-salon-broker.log"
     working_dir var/"agent-salon-broker"
     environment_variables(
-      AGENT_SALON_BROKER_CONFIG: etc/"agent-salon-broker.conf",
+      AGENT_SALON_BROKER_CONFIG:    etc/"agent-salon-broker.conf",
+      AGENT_SALON_BROKER_JSONL_LOG: var/"log/agent-salon-broker.jsonl",
     )
   end
 
