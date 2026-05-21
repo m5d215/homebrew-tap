@@ -1,20 +1,20 @@
 class AgentSalon < Formula
   desc "Gathering place for Claude Code MCP sessions"
   homepage "https://github.com/m5d215/agent-salon"
-  version "0.5.0"
+  version "0.5.1"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/m5d215/agent-salon/releases/download/v0.5.0/agent-salon-macos-arm64.tar.gz"
-      sha256 "45a7c85ea746743a94eecd3b3693faa602f809730f1df26ef082e221eebf7496"
+      url "https://github.com/m5d215/agent-salon/releases/download/v0.5.1/agent-salon-macos-arm64.tar.gz"
+      sha256 "a14b1ce755a926344bd289069b6f4e03f7df0a07a9f7bc6dae9f97f5aa19833e"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/m5d215/agent-salon/releases/download/v0.5.0/agent-salon-linux-x86_64.tar.gz"
-      sha256 "9dc13b2f6ff0bb7d3a107a2b667e990e2fdb7754de6fbd5b487e1fbf272e5cc3"
+      url "https://github.com/m5d215/agent-salon/releases/download/v0.5.1/agent-salon-linux-x86_64.tar.gz"
+      sha256 "3ec177df870854c61680f1995b79b4db23571903cc36109d28f54709de71681e"
     end
   end
 
