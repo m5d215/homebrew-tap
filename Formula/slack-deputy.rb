@@ -1,20 +1,20 @@
 class SlackDeputy < Formula
   desc "Personal agent that handles your Slack as yourself"
   homepage "https://github.com/m5d215/slack-deputy"
-  version "0.0.0"
+  version "0.0.1"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/m5d215/slack-deputy/releases/download/v0.0.0/slack-deputy-macos-arm64.tar.gz"
-      sha256 "0000000000000000000000000000000000000000000000000000000000000000"
+      url "https://github.com/m5d215/slack-deputy/releases/download/v0.0.1/slack-deputy-macos-arm64.tar.gz"
+      sha256 "c25e038a0c8ec8c9d333aa09ecdc50750979819ea6faabc0ad483d979254f738"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/m5d215/slack-deputy/releases/download/v0.0.0/slack-deputy-linux-x86_64.tar.gz"
-      sha256 "0000000000000000000000000000000000000000000000000000000000000000"
+      url "https://github.com/m5d215/slack-deputy/releases/download/v0.0.1/slack-deputy-linux-x86_64.tar.gz"
+      sha256 "def3a8c385e327cabbf3f82baec3e0558e5db5d9801db1789114876b18cf94d1"
     end
   end
 
