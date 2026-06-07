@@ -1,20 +1,20 @@
 class GitForeach < Formula
   desc "Run a command across many local git repositories from a mouse-driven TUI"
   homepage "https://github.com/m5d215/git-foreach"
-  version "0.1.0"
+  version "0.2.0"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/m5d215/git-foreach/releases/download/v0.1.0/git-foreach-macos-arm64.tar.gz"
-      sha256 "2d686c2fc6fa1c8f4a6b9a0efe3e4bc5016e164afeb4a92d4a07c764eda094e0"
+      url "https://github.com/m5d215/git-foreach/releases/download/v0.2.0/git-foreach-macos-arm64.tar.gz"
+      sha256 "c73ef73eeb7a0863ccd52cf99e41a8c56bd0b84d165ac056a893251faa7f76bf"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/m5d215/git-foreach/releases/download/v0.1.0/git-foreach-linux-x86_64.tar.gz"
-      sha256 "e7ee81a38f8dd2e6737ab1c65bdeb4330d98b8082adb443a629e4429f826bedc"
+      url "https://github.com/m5d215/git-foreach/releases/download/v0.2.0/git-foreach-linux-x86_64.tar.gz"
+      sha256 "6d5c3e2352e743450c07b3e1337428c064dc6d9918adb71e483bb8f97d8155ba"
     end
   end
 
