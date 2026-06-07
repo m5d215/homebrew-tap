@@ -7,14 +7,14 @@ class GitForeach < Formula
   on_macos do
     on_arm do
       url "https://github.com/m5d215/git-foreach/releases/download/v0.1.0/git-foreach-macos-arm64.tar.gz"
-      sha256 "0000000000000000000000000000000000000000000000000000000000000000"
+      sha256 "2d686c2fc6fa1c8f4a6b9a0efe3e4bc5016e164afeb4a92d4a07c764eda094e0"
     end
   end
 
   on_linux do
     on_intel do
       url "https://github.com/m5d215/git-foreach/releases/download/v0.1.0/git-foreach-linux-x86_64.tar.gz"
-      sha256 "0000000000000000000000000000000000000000000000000000000000000000"
+      sha256 "e7ee81a38f8dd2e6737ab1c65bdeb4330d98b8082adb443a629e4429f826bedc"
     end
   end
 
