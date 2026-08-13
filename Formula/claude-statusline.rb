@@ -2,7 +2,7 @@ class ClaudeStatusline < Formula
   desc "Status line and subagent panel renderer for Claude Code"
   homepage "https://github.com/m5d215/claude-statusline"
   url "https://github.com/m5d215/claude-statusline.git",
-      tag: "v0.7.1"
+      tag: "v0.8.0"
   license "MIT"
   head "https://github.com/m5d215/claude-statusline.git", branch: "main"
 
